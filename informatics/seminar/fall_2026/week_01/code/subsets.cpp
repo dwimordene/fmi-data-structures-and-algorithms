@@ -46,9 +46,7 @@ int main() {
         for (size_t i = 0; i < subset.size(); ++i) {
             cout << subset[i];
 
-            if (i + 1 < subset.size()) {
-                cout << ", ";
-            }
+            if (i + 1 < subset.size()) cout << ", ";
         }
 
         cout << "}\n";

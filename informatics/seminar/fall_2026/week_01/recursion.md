@@ -168,7 +168,9 @@ unsigned int current_permutation[MAX_ELEMENTS];
 void print() {
     unsigned int i;
     
-    for (i = 0; i < PERMUTATION_SIZE; ++i) std::cout << current_permutation[i] + 1 << " ";
+    for (i = 0; i < PERMUTATION_SIZE; ++i) {
+        std::cout << current_permutation[i] + 1 << " ";
+    }
     
     std::cout << "\n";
 }
@@ -210,7 +212,9 @@ void permute(unsigned int current_position) {
 int main() {
     unsigned int i;
     
-    for (i = 0; i < PERMUTATION_SIZE; ++i) is_used[i] = false;
+    for (i = 0; i < PERMUTATION_SIZE; ++i) {
+        is_used[i] = false;
+    }
     
     permute(0);
     

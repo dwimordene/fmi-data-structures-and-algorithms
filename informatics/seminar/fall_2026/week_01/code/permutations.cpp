@@ -52,9 +52,7 @@ int main() {
         for (size_t i = 0; i < permutation.size(); ++i) {
             cout << permutation[i];
 
-            if (i + 1 < permutation.size()) {
-                cout << ", ";
-            }
+            if (i + 1 < permutation.size()) cout << ", ";
         }
 
         cout << ")\n";
