@@ -181,6 +181,7 @@ void permute(unsigned int current_position) {
     // Намерили сме пълна пермутация
     if (PERMUTATION_SIZE <= current_position) {
         print();
+        
         return;
     }
     
@@ -212,6 +213,7 @@ int main() {
     for (i = 0; i < PERMUTATION_SIZE; ++i) is_used[i] = false;
     
     permute(0);
+    
     return 0;
 }
 ```
