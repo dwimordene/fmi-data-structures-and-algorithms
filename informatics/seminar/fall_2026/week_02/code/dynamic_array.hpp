@@ -21,34 +21,34 @@ public:
 
     // === INFORMATION METHODS ===
 
-    bool contains(const T& element) const;
+    bool contains(const T& elem) const;
 
-    inline bool isEmpty() const {
+    bool isEmpty() const {
         return size == 0;
     }
 
-    inline size_t getCapacity() const {
+    size_t getCapacity() const {
         return capacity;
     }
 
-    inline size_t getSize() const {
+    size_t getSize() const {
         return size;
     }
 
     // === ACCESS OPERATORS ===
 
-    T& operator[](size_t position);
-    const T& operator[](size_t position) const;
+    T& operator[](size_t pos);
+    const T& operator[](size_t pos) const;
 
     // === MODIFIERS ===
 
     void clear();
-    void erase(size_t position);
-    void insert(T&& element, size_t position);
-    void insert(const T& element, size_t position);
+    void erase(size_t pos);
+    void insert(T&& elem, size_t pos);
+    void insert(const T& elem, size_t pos);
     void popBack();
-    void pushBack(T&& element);
-    void pushBack(const T& element);
+    void pushBack(T&& elem);
+    void pushBack(const T& elem);
 
 protected:
     T* data;

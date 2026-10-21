@@ -81,30 +81,30 @@ inline DynamicArray<T>& DynamicArray<T>::operator=(const DynamicArray<T>& other)
 }
 
 template <typename T>
-inline bool DynamicArray<T>::contains(const T& element) const {
+inline bool DynamicArray<T>::contains(const T& elem) const {
     for (size_t i = 0; i < size; ++i) {
-        if (data[i] == element) return true;
+        if (data[i] == elem) return true;
     }
 
     return false;
 }
 
 template <typename T>
-inline T& DynamicArray<T>::operator[](size_t position) {
-    if (position >= size) {
+inline T& DynamicArray<T>::operator[](size_t pos) {
+    if (pos >= size) {
         throw std::out_of_range("Position exceeds current array size.");
     }
 
-    return data[position];
+    return data[pos];
 }
 
 template <typename T>
-inline const T& DynamicArray<T>::operator[](size_t position) const {
-    if (position >= size) {
+inline const T& DynamicArray<T>::operator[](size_t pos) const {
+    if (pos >= size) {
         throw std::out_of_range("Position exceeds current array size.");
     }
 
-    return data[position];
+    return data[pos];
 }
 
 template <typename T>
@@ -117,13 +117,13 @@ inline void DynamicArray<T>::clear() {
 }
 
 template <typename T>
-inline void DynamicArray<T>::erase(size_t position) {
-    if (position >= size) {
+inline void DynamicArray<T>::erase(size_t pos) {
+    if (pos >= size) {
         throw std::out_of_range("Position exceeds current array size.");
     }
 
     // Shift elements left to fill the gap
-    for (size_t i = position; i < size - 1; ++i) {
+    for (size_t i = pos; i < size - 1; ++i) {
         data[i] = std::move(data[i + 1]);
     }
 
@@ -131,37 +131,37 @@ inline void DynamicArray<T>::erase(size_t position) {
 }
 
 template <typename T>
-inline void DynamicArray<T>::insert(T&& element, size_t position) {
-    if (position > size) {
+inline void DynamicArray<T>::insert(T&& elem, size_t pos) {
+    if (pos > size) {
         throw std::out_of_range("Position exceeds current array size.");
     }
 
     checkAndReserve(size + 1);
 
     // Shift elements right to make room
-    for (size_t i = size; i > position; --i) {
+    for (size_t i = size; i > pos; --i) {
         data[i] = std::move(data[i - 1]);
     }
 
-    data[position] = std::move(element);
+    data[pos] = std::move(elem);
 
     ++size;
 }
 
 template <typename T>
-inline void DynamicArray<T>::insert(const T& element, size_t position) {
-    if (position > size) {
+inline void DynamicArray<T>::insert(const T& elem, size_t pos) {
+    if (pos > size) {
         throw std::out_of_range("Position exceeds current array size.");
     }
 
     checkAndReserve(size + 1);
 
     // Shift elements right to make room
-    for (size_t i = size; i > position; --i) {
+    for (size_t i = size; i > pos; --i) {
         data[i] = std::move(data[i - 1]);
     }
 
-    data[position] = element;
+    data[pos] = elem;
 
     ++size;
 }
@@ -176,17 +176,17 @@ inline void DynamicArray<T>::popBack() {
 }
 
 template <typename T>
-inline void DynamicArray<T>::pushBack(T&& element) {
+inline void DynamicArray<T>::pushBack(T&& elem) {
     checkAndReserve(size + 1);
-    data[size] = std::move(element);
+    data[size] = std::move(elem);
 
     ++size;
 }
 
 template <typename T>
-inline void DynamicArray<T>::pushBack(const T& element) {
+inline void DynamicArray<T>::pushBack(const T& elem) {
     checkAndReserve(size + 1);
-    data[size] = element;
+    data[size] = elem;
 
     ++size;
 }
