@@ -48,7 +48,7 @@ private:
     void moveTowardBeginning(size_t pos);
 
     // Used when an element is too large for its current position,
-    // such as increasing an existing element's value.
+    // such as increasing an existing element's value
     void moveTowardEnd(size_t pos);
 
     DynamicArray<T> data;
