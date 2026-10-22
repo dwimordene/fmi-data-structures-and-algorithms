@@ -62,7 +62,7 @@ class Foo {
 Този подход е изключително удобен, когато искаме да създадем структура с фиксиран размер, който да се определя при самото инстанциране (точно както работи `std::array`):
 
 ```cpp
-template <typename Type, std::size_t Capacity>
+template <typename Type, size_t Capacity>
 class MyArray {
     Type data[Capacity];
 
@@ -97,7 +97,7 @@ int main() {
 Вижте как изглежда това на практика в следния пример:
 
 ```cpp
-template <typename Type, std::size_t Capacity, template <typename, std::size_t> class Container>
+template <typename Type, size_t Capacity, template <typename, size_t> class Container>
 class Wrapper {
     Container<Type, Capacity> container;
 
@@ -116,7 +116,7 @@ int main() {
 }
 ```
 
-По този начин `Wrapper` остава напълно независим от конкретната имплементация - той само изисква подаденият шаблон да отговаря на очакваната структурна форма (`template <typename, std::size_t>`).
+По този начин `Wrapper` остава напълно независим от конкретната имплементация - той само изисква подаденият шаблон да отговаря на очакваната структурна форма (`template <typename, size_t>`).
 
 > **Бележка:** Имената в декларацията на шаблонния параметър служат само за синтактична коректност и не могат да се използват като самостоятелни типове в тялото на класа.
 
@@ -127,7 +127,7 @@ int main() {
 Например, можем да дефинираме клас, чийто тип на данните или чийто размер по подразбиране е предварително зададен:
 
 ```cpp
-template <typename Type = int, std::size_t Capacity = 100>
+template <typename Type = int, size_t Capacity = 100>
 class MyFixedArray {
     Type data[Capacity];
 
@@ -207,7 +207,7 @@ int main() {
 #pragma once
 
 template <typename T>
-T minimum(const T& lhs, const T& rhs) {
+inline T minimum(const T& lhs, const T& rhs) {
     return lhs < rhs ? lhs : rhs;
 }
 ```
@@ -250,10 +250,10 @@ public:
 ```cpp
 // box.inl
 template <typename T>
-Box<T>::Box(const T& value) : value(value) {}
+inline Box<T>::Box(const T& value) : value(value) {}
 
 template <typename T>
-T Box<T>::getValue() const {
+inline T Box<T>::getValue() const {
     return value;
 }
 ```
