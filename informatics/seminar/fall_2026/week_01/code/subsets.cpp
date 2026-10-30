@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdexcept>
 #include <vector>
 
 using namespace std;
@@ -34,22 +35,27 @@ public:
 };
 
 int main() {
-    Solution s;
-    vector<int> nums = { 1, 2, 3 };
-    vector<vector<int>> subsets = s.subsets(nums);
+    try {
+        Solution s;
+        vector<int> nums = { 1, 2, 3 };
+        vector<vector<int>> subsets = s.subsets(nums);
 
-    cout << "Subsets for {1, 2, 3}:\n";
+        cout << "Subsets for {1, 2, 3}:\n";
 
-    for (const vector<int>& subset : subsets) {
-        cout << "{";
+        for (const vector<int>& subset : subsets) {
+            cout << "{";
 
-        for (size_t i = 0; i < subset.size(); ++i) {
-            cout << subset[i];
+            for (size_t i = 0; i < subset.size(); ++i) {
+                cout << subset[i];
 
-            if (i + 1 < subset.size()) cout << ", ";
+                if (i + 1 < subset.size()) cout << ", ";
+            }
+
+            cout << "}\n";
         }
-
-        cout << "}\n";
+    }
+    catch (const std::exception& e) {
+        std::cerr << "[Caught Exception]: " << e.what() << std::endl;
     }
 
     return 0;
