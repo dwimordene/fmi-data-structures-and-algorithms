@@ -1,14 +1,14 @@
+struct ListNode {
+    int val;
+
+    ListNode* next;
+
+    ListNode(int data, ListNode* next = nullptr)
+        : val(data), next(next) {
+    }
+};
+
 class Solution {
-    struct ListNode {
-        int val;
-
-        ListNode* next;
-
-        ListNode(int data, ListNode* next = nullptr)
-            : val(data), next(next) {
-        }
-    };
-
 public:
     bool hasCycle(ListNode* head) {
         if (!head) {
