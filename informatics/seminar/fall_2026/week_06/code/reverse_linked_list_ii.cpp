@@ -1,14 +1,14 @@
+struct ListNode {
+    int val;
+
+    ListNode* next;
+
+    ListNode(int data, ListNode* next = nullptr)
+        : val(data), next(next) {
+    }
+};
+
 class Solution {
-    struct ListNode {
-        int val;
-
-        ListNode* next;
-
-        ListNode(int data, ListNode* next = nullptr)
-            : val(data), next(next) {
-        }
-    };
-
 public:
     ListNode* reverseBetween(ListNode* head, int left, int right) {
         if (!head || left == right) {

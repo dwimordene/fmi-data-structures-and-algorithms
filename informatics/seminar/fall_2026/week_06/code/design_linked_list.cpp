@@ -1,14 +1,14 @@
+struct ListNode {
+    int val;
+
+    ListNode* next;
+
+    ListNode(int data, ListNode* next = nullptr)
+        : val(data), next(next) {
+    }
+};
+
 class MyLinkedList {
-    struct ListNode {
-        int val;
-
-        ListNode* next;
-
-        ListNode(int data, ListNode* next = nullptr)
-            : val(data), next(next) {
-        }
-    };
-
 public:
     MyLinkedList()
         : head(nullptr), tail(nullptr), size(0) {
